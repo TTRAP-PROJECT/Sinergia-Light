@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="firstMobileApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:firstMobileApp"
+    Shell.FlyoutBehavior="Disabled"
+    Title="firstMobileApp">
+
+    <TabBar>
+        <Tab 
+            Title=""
+            Icon="search_icon.png"
+            >
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="search"/>
+        </Tab>
+        <Tab 
+            Title=""
+            Icon="talk_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="talk" />
+        </Tab>
+        <Tab 
+            Title=""
+            Icon="home_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="home"/>
+        </Tab>
+        <Tab 
+            Title=""
+            Icon="plus_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="add"/>
+        </Tab>
+        <Tab 
+            Title=""
+            Icon="user_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="user"/>
+        </Tab>
+    </TabBar>
+
+
+</Shell>
