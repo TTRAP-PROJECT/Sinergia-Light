@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>firstMobileApp</ApplicationTitle>
+		<ApplicationTitle>Synergia Light</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.firstmobileapp</ApplicationId>
@@ -40,7 +40,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\synergia_icon.jpg">
+		  <Color>#FFFFFF</Color>
+		</MauiIcon>
+
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Images\synergia.jpg" Color="#FFFFFF" BaseSize="256,256" />
@@ -70,6 +73,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\synergia_icon.jpg" />
 	  <None Remove="Resources\Images\plus.png" />
 	</ItemGroup>
 
