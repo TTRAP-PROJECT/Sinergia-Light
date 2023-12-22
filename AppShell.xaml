@@ -3,6 +3,7 @@
     x:Class="firstMobileApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:firstMobileApp.Views"
     xmlns:local="clr-namespace:firstMobileApp"
     Shell.FlyoutBehavior="Disabled"
     Title="firstMobileApp">
@@ -12,12 +13,12 @@
             Title=""
             Icon="search_icon.png"
             >
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="search"/>
+            <ShellContent ContentTemplate="{DataTemplate views:searchPage}" Route="search"/>
         </Tab>
         <Tab 
             Title=""
             Icon="talk_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="talk" />
+            <ShellContent ContentTemplate="{DataTemplate views:talkPage}" Route="talk" />
         </Tab>
         <Tab 
             Title=""
@@ -27,12 +28,12 @@
         <Tab 
             Title=""
             Icon="plus_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="add"/>
+            <ShellContent ContentTemplate="{DataTemplate views:addPage}" Route="add"/>
         </Tab>
         <Tab 
             Title=""
             Icon="user_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="user"/>
+            <ShellContent ContentTemplate="{DataTemplate views:accountPage}" Route="user"/>
         </Tab>
     </TabBar>
 

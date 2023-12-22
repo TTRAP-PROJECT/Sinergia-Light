@@ -1,8 +1,8 @@
 namespace firstMobileApp.Views;
 
-public partial class NewPage1 : ContentPage
+public partial class addPage : ContentPage
 {
-	public NewPage1()
+	public addPage()
 	{
 		InitializeComponent();
 	}
