@@ -4,7 +4,14 @@
              x:Class="firstMobileApp.Views.accountPage"
              Title="accountPage"
              Shell.TitleColor="White"
+             
              >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Test1" IconImageSource="dora.png"/>
+       
+
+    </ContentPage.ToolbarItems>
+    
     <VerticalStackLayout>
         <Label 
             Text="Welcome to .NET MAUI!"

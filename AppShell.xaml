@@ -7,11 +7,15 @@
     xmlns:local="clr-namespace:firstMobileApp"
     Shell.FlyoutBehavior="Disabled"
     Title="firstMobileApp">
+    
+    <ToolbarItem Text="Add item"
+                IconImageSource="dora.png" />
+    
 
     <TabBar>
         <Tab 
             Title=""
-            Icon="search_icon.png"
+            Icon="dora.png"
             >
             <ShellContent ContentTemplate="{DataTemplate views:searchPage}" Route="search"/>
         </Tab>

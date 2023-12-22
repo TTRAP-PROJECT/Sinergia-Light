@@ -68,7 +68,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\plus.png" />
+	  <None Remove="Resources\Images\menu3.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -102,7 +102,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="Resources\AppIcon\dora.png">
+	  <None Update="Resources\Images\dora.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
