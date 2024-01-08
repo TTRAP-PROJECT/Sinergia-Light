@@ -74,6 +74,8 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\synergia_icon.jpg" />
+	  <None Remove="Resources\Images\conv_gaming.jpg" />
+	  <None Remove="Resources\Images\logo_site.png" />
 	  <None Remove="Resources\Images\plus.png" />
 	</ItemGroup>
 
