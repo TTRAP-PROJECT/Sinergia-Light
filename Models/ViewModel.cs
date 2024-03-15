@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using firstMobileApp.Class;
 
-namespace firstMobileApp.Class
+namespace firstMobileApp.Models
 {
     internal class ViewModel : INotifyPropertyChanged
     {

@@ -30,18 +30,15 @@ namespace firstMobileApp.Class
                 return null;
             }
         }
-        public async void GetPostData()
+        public async Task<string> GetPostData(string endpoint)
         {
-            var url = "http://192.168.125.11:81/api/users";
+            var url = "http://192.168.125.11:81/api"+endpoint;
             var client = new HttpClient();
             var response = await client.GetAsync(url);
 
             var jsonResponse = await response.Content.ReadAsStringAsync();
-            Console.WriteLine($"{jsonResponse}\n");
 
-            List<Users> usersList = JsonConvert.DeserializeObject<List<Users>>(jsonResponse);
-
-            Console.WriteLine(usersList);
+            return jsonResponse;
         }
     }
 }

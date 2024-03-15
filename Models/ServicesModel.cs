@@ -1,18 +1,39 @@
-﻿using System;
+﻿using firstMobileApp.Class;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using firstMobileApp.Class;
 
-namespace firstMobileApp.Class
+namespace firstMobileApp.Models
 {
-    internal class UsersModel : INotifyPropertyChanged
+    internal class ServicesModel : INotifyPropertyChanged
     {
         API api;
         private ObservableCollection<Users> _usersList;
+
+
+
+        public ServicesModel()
+        {
+            api = new API();
+            UsersList = new ObservableCollection<Users>();
+            LoadData();
+        }
+
+        private async void LoadData()
+        {
+            var result = await api.GetPostData("/users");
+            List<Users> usersList = JsonConvert.DeserializeObject<List<Users>>(result);
+
+            foreach (var user in usersList)
+            {
+                UsersList.Add(user);
+            }
+        }
 
         public ObservableCollection<Users> UsersList
         {
@@ -25,13 +46,6 @@ namespace firstMobileApp.Class
                     OnPropertyChanged(nameof(UsersList));
                 }
             }
-        }
-
-        public UsersModel()
-        {
-            api = new API();
-            UsersList = new ObservableCollection<Users>();
-            api.GetPostData();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

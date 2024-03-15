@@ -1,5 +1,5 @@
 using Microsoft.Maui.Controls;
-using firstMobileApp.Class;  // Assurez-vous d'importer votre classe ViewModel
+using firstMobileApp.Models;  // Assurez-vous d'importer votre classe ViewModel
 
 namespace firstMobileApp.Views
 {

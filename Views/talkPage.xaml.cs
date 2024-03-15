@@ -1,4 +1,4 @@
-using firstMobileApp.Class;
+using firstMobileApp.Models;
 
 namespace firstMobileApp.Views;
 
