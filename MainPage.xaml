@@ -23,7 +23,10 @@
 
             <!-- Grande case pour saisir du texte (Entry) -->
             <Entry Placeholder="Saisir un événement" />
-
+            <SearchBar x:Name="searchBar"
+               SearchCommand="{Binding FilterCommand}"
+               SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"
+               Placeholder="Filter" />
             <!-- Autre contenu ici -->
             <ScrollView>
                 <!-- Contenu déroulant ici -->
@@ -31,31 +34,7 @@
                 
             </ScrollView>
             <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
-            <Button Text="bouton 1"/>
+
         </StackLayout>
     </ScrollView>
     

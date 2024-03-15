@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>firstMobileApp</ApplicationTitle>
+		<ApplicationTitle>Synergia Light</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.firstmobileapp</ApplicationId>
@@ -40,10 +40,15 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\synergia_icon.jpg">
+		  <Color>#FFFFFF</Color>
+		</MauiIcon>
+
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Images\synergia.jpg" Color="#FFFFFF" BaseSize="256,256" />
+		
+		
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -68,6 +73,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Platforms\Android\Resources\xml\network_security_config.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\AppIcon\synergia_icon.jpg" />
+	  <None Remove="Resources\Images\conv_gaming.jpg" />
+	  <None Remove="Resources\Images\logo_site.png" />
 	  <None Remove="Resources\Images\plus.png" />
 	</ItemGroup>
 
@@ -75,6 +87,9 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
+		<PackageReference Include="System.Text.Json" Version="8.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
