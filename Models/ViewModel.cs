@@ -27,7 +27,7 @@ namespace firstMobileApp.Models
             EventList = new ObservableCollection<Event>();
 
             // Ajoutez plusieurs événements simulés
-            for (int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 10; i++)
             {
                 EventList.Add(new Event
                 {
