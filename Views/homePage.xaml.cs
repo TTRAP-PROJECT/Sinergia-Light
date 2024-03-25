@@ -1,8 +1,8 @@
 ﻿namespace firstMobileApp
 {
-    public partial class MainPage : ContentPage
+    public partial class HomePage : ContentPage
     {
-        public MainPage()
+        public HomePage()
         {
             InitializeComponent();
             

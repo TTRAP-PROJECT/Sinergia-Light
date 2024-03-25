@@ -5,10 +5,10 @@
              Title="talkPage">
     <ScrollView>
         <StackLayout>
-            <CollectionView ItemsSource="{Binding UsersList}">
+            <CollectionView ItemsSource="{Binding EvenementsSportifsList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="White">
+                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="LightCoral">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
@@ -18,16 +18,13 @@
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
 
-                                
+                                <Image Source="des_sports.jpg" Grid.Column="1" Aspect="AspectFit"/>
                                 <StackLayout Grid.Column="0" Padding="10">
                                     <!-- Titre -->
-                                    <Label Text="{Binding IDUTILISATEUR}" FontSize="Body" FontAttributes="Bold"/>
-                                    <Label Text="{Binding PRENOMUTILISATEUR}" FontSize="Body"/>
-                                    <Label Text="{Binding NOMUTILISATEUR}" FontSize="Body"/>
-                                    <Label Text="{Binding EMAILUTILISATEUR}" FontSize="Body"/>
-                                    <Label Text="{Binding MOTDEPASSE}" FontSize="Body"/>
-                                    <Label Text="{Binding NOMUTILISATEUR}" FontSize="Body"/>
-
+                                    <Label Text="{Binding LieuEvent}" FontSize="Body" FontAttributes="Bold"/>
+                                    <Label Text="{Binding IdSport}" FontSize="Body"/>
+                                    <!-- Date -->
+                                    <Label Text="{Binding DateEvent, StringFormat='{0:dd/MM/yyyy} '}" FontSize="Micro" HorizontalOptions="Center"/>
                                 </StackLayout>
                             </Grid>
                         </Frame>

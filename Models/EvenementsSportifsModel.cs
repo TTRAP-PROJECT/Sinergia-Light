@@ -10,40 +10,40 @@ using System.Threading.Tasks;
 
 namespace firstMobileApp.Models
 {
-    internal class ServicesModel : INotifyPropertyChanged
+    class EvenementsSportifsModel
     {
         API api;
-        private ObservableCollection<Services> _servicesList;
+        private ObservableCollection<EvenementsSportifs> _evenementsSportifsList;
 
 
 
-        public ServicesModel()
+        public EvenementsSportifsModel()
         {
             api = new API();
-            ServicesList = new ObservableCollection<Services>();
+            EvenementsSportifsList = new ObservableCollection<EvenementsSportifs>();
             LoadData();
         }
 
         private async void LoadData()
         {
-            var result = await api.GetPostData("/services");
-            List<Services> servicesList = JsonConvert.DeserializeObject<List<Services>>(result);
+            var result = await api.GetPostData("/events/sport");
+            List<EvenementsSportifs> servicesList = JsonConvert.DeserializeObject<List<EvenementsSportifs>>(result);
 
             foreach (var user in servicesList)
             {
-                ServicesList.Add(user);
+                EvenementsSportifsList.Add(user);
             }
         }
 
-        public ObservableCollection<Services> ServicesList
+        public ObservableCollection<EvenementsSportifs> EvenementsSportifsList
         {
-            get { return _servicesList; }
+            get { return _evenementsSportifsList; }
             set
             {
-                if (_servicesList != value)
+                if (_evenementsSportifsList != value)
                 {
-                    _servicesList = value;
-                    OnPropertyChanged(nameof(ServicesList));
+                    _evenementsSportifsList = value;
+                    OnPropertyChanged(nameof(EvenementsSportifsList));
                 }
             }
         }

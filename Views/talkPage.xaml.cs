@@ -9,10 +9,10 @@ public partial class talkPage : ContentPage
 		InitializeComponent();
 
         // Créer une instance de votre ViewModel
-        UsersModel usersModel = new UsersModel();
+        EvenementsSportifsModel evenementsSportifs = new EvenementsSportifsModel();
 
         // Définir le BindingContext sur votre ViewModel
-        BindingContext = usersModel;
+        BindingContext = evenementsSportifs;
 
     }
 

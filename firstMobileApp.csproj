@@ -73,7 +73,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\cinema.png" />
+	  <None Remove="Resources\Images\covoiturage.png" />
+	  <None Remove="Resources\Images\des_sports.png" />
+	  <None Remove="Resources\Images\livre.png" />
+	  <None Remove="Resources\Images\loisirs.png" />
 	  <None Remove="Resources\Images\menu3.png" />
+	  <None Remove="Resources\Images\sondages.png" />
+	  <None Remove="Resources\Images\volant.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -89,6 +96,9 @@
 	  <Compile Update="Views\accountPage.xaml.cs">
 	    <DependentUpon>accountPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\homePage.xaml.cs">
+	    <DependentUpon>homePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\searchPage.xaml.cs">
 	    <DependentUpon>searchPage.xaml</DependentUpon>
 	  </Compile>
@@ -101,7 +111,25 @@
 	  <MauiXaml Update="Views\addPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Cinema.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Covoiturage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EchangeConnaissances.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EvenementsSportifs.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Loisirs.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\searchPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Sondages.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\talkPage.xaml">

@@ -14,28 +14,27 @@
 
     <TabBar>
         <Tab 
-            Title=""
-            Icon="dora.png"
-            >
-            <ShellContent ContentTemplate="{DataTemplate views:searchPage}" Route="search"/>
+            Title="Accueil"
+            Icon="home_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" Route="home"/>
         </Tab>
         <Tab 
-            Title=""
+            Title="Messages"
             Icon="talk_icon.png">
             <ShellContent ContentTemplate="{DataTemplate views:talkPage}" Route="talk" />
         </Tab>
         <Tab 
-            Title=""
-            Icon="home_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="home"/>
-        </Tab>
-        <Tab 
-            Title=""
+            Title="Ajouter"
             Icon="plus_icon.png">
             <ShellContent ContentTemplate="{DataTemplate views:addPage}" Route="add"/>
         </Tab>
         <Tab 
-            Title=""
+            Title="Recherche"
+            Icon="search_icon.png">   
+            <ShellContent ContentTemplate="{DataTemplate views:searchPage}" Route="search"/>
+        </Tab>
+        <Tab 
+            Title="Compte"
             Icon="user_icon.png">
             <ShellContent ContentTemplate="{DataTemplate views:accountPage}" Route="user"/>
         </Tab>

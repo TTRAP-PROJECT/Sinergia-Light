@@ -27,14 +27,14 @@ namespace firstMobileApp.Models
             EventList = new ObservableCollection<Event>();
 
             // Ajoutez plusieurs événements simulés
-            for (int i = 1; i <= 50; i++)
+            for (int i = 1; i <= 5; i++)
             {
                 EventList.Add(new Event
                 {
                     Title = $"Événement {i}",
                     Description = $"Description de l'événement {i}",
                     ProfilePhoto = $"logo_site.png",
-                    EventPhoto = $"conv_gaming.jpg",
+                    EventPhoto = $"des_sports.jpg",
                     Date = DateTime.Now.AddDays(i)
                 });
             }
