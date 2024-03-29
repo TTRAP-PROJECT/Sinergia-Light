@@ -25,7 +25,7 @@ namespace firstMobileApp.Models
             this.login = login;
             this.password = password;
             estValide = false;
-            LoadData();
+            
         }
         public async Task LoadData()
         {
@@ -35,15 +35,15 @@ namespace firstMobileApp.Models
                 { "email", login },
                 { "password", password }
             };
-
+            
             // Convertir les données en JSON
             string jsonData = JsonConvert.SerializeObject(data);
 
             // Appeler la méthode PostData de votre API en passant le chemin d'URL et les données JSON
-            var result = await api.PostData("/user/validation", jsonData);
+            var result = await api.PostData("/user/validation?email=tombury59@hotmail.com&password=password", "{}");
 
             // Désérialiser la réponse de la requête
-            estValide = JsonConvert.DeserializeObject<bool>(result);
+            estValide = result == "true";
         }
     }
 }

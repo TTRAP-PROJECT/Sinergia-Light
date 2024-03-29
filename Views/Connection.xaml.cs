@@ -16,6 +16,7 @@ public partial class Connection : ContentPage
     private async void LoginButton_Clicked(object sender, EventArgs e)
     {
         ConnectionModel connectionModel = new(UsernameEntry.Text, PasswordEntry.Text);
+        await connectionModel.LoadData();
         // Navigate to the desired page
         if (connectionModel.estValide)
         {

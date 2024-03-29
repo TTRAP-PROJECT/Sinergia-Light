@@ -44,7 +44,9 @@ namespace firstMobileApp.Class
         public async Task<string> PostData(string endpoint, string jsonData)
         {
             var url = "http://192.168.125.11:81/api" + endpoint;
+
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
             var response = await _client.PostAsync(url, content);
 
 
