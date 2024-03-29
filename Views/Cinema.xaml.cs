@@ -9,9 +9,9 @@ public partial class Cinema : ContentPage
 		InitializeComponent();
 
         // Créer une instance de votre ViewModel
-        ViewModel viewModel = new ViewModel();
+        CinemaModel cinemaModel = new CinemaModel();
 
         // Définir le BindingContext sur votre ViewModel
-        BindingContext = viewModel;
+        BindingContext = cinemaModel;
     }
 }

@@ -6,11 +6,9 @@
     xmlns:views="clr-namespace:firstMobileApp.Views"
     xmlns:local="clr-namespace:firstMobileApp"
     Shell.FlyoutBehavior="Disabled"
-    Title="firstMobileApp">
-    
-    <ToolbarItem Text="Add item"
-                IconImageSource="dora.png" />
-    
+    Title="firstMobileApp"
+    >
+
 
     <TabBar>
         <Tab 
@@ -39,6 +37,6 @@
             <ShellContent ContentTemplate="{DataTemplate views:accountPage}" Route="user"/>
         </Tab>
     </TabBar>
-
+    
 
 </Shell>

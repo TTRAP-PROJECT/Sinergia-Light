@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:firstMobileApp"
              x:Class="firstMobileApp.Views.talkPage"
              Title="talkPage">
     <ScrollView>
@@ -21,7 +22,7 @@
                                 <Image Source="des_sports.jpg" Grid.Column="1" Aspect="AspectFit"/>
                                 <StackLayout Grid.Column="0" Padding="10">
                                     <!-- Titre -->
-                                    <Label Text="{Binding LieuEvent}" FontSize="Body" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Sport.LibelleSport}" FontSize="Body" FontAttributes="Bold"/>
                                     <Label Text="{Binding IdSport}" FontSize="Body"/>
                                     <!-- Date -->
                                     <Label Text="{Binding DateEvent, StringFormat='{0:dd/MM/yyyy} '}" FontSize="Micro" HorizontalOptions="Center"/>

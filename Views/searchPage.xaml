@@ -23,7 +23,7 @@
                         <!-- Titre -->
                         <Label Text="Evenements Sportifs" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="NavigateToEvenementsSportifsPage" />
+                                <TapGestureRecognizer Tapped="NavigateToEvenementsSportifs" />
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout>

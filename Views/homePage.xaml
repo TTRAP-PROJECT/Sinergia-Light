@@ -7,35 +7,7 @@
     
     
     <ScrollView>
-        <!-- En-tête fixe en haut -->
-        <!--<StackLayout BackgroundColor="#000091" VerticalOptions="Start" Padding="10"  HeightRequest="50" Orientation="Vertical">-->
-
-        <!--<Label Text="Mon En-tête"-->
-        <!--FontSize="Large"-->
-        <!--FontAttributes="Bold"-->
-        <!--TextColor="White"/>-->
-        <!--</StackLayout> -->
-
-            <!-- Contenu principal -->
-        <StackLayout  Padding="0" Orientation="Vertical" Spacing="10"> 
-            <!-- Label Événements -->
-            <Label Text="Événements" FontSize="Large" FontAttributes="Bold" Margin="0,10,0,5" />
-
-            <!-- Grande case pour saisir du texte (Entry) -->
-            <Entry Placeholder="Saisir un événement" />
-            <SearchBar x:Name="searchBar"
-               SearchCommand="{Binding FilterCommand}"
-               SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"
-               Placeholder="Filter" />
-            <!-- Autre contenu ici -->
-            <ScrollView>
-                <!-- Contenu déroulant ici -->
-                <Label Text="Contenu principal" />
-                
-            </ScrollView>
-            <Button Text="bouton 1"/>
-
-        </StackLayout>
+        <CarouselView></CarouselView>
     </ScrollView>
     
     

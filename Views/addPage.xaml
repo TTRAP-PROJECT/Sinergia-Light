@@ -3,12 +3,147 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="firstMobileApp.Views.addPage"
              Title="addPage">
-    
 
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <StackLayout>
+            <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="IndianRed">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Image à droite -->
+                    <Image Source="des_sports.jpg" Grid.Column="1" Aspect="AspectFit"/>
+
+                    <StackLayout Grid.Column="0" Padding="10" >
+                        <!-- Titre -->
+                        <Label Text="Evenements Sportifs" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NavigateToEvenementsSportifs" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="SandyBrown">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Image à droite -->
+                    <Image Source="livre.jpg" Grid.Column="1" Aspect="AspectFit"/>
+
+                    <StackLayout Grid.Column="0" Padding="10" >
+                        <!-- Titre -->
+                        <Label Text="Echange de connaissances" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NavigateToEchangeConnaissances" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="LightSkyBlue">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Image à droite -->
+                    <Image Source="cinema.png" Grid.Column="1" Aspect="AspectFit"/>
+
+                    <StackLayout Grid.Column="0" Padding="10" >
+                        <!-- Titre -->
+                        <Label Text="Cinéma" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NavigateToCinema" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="LightGreen">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Image à droite -->
+                    <Image Source="covoiturage.png" Grid.Column="1" Aspect="AspectFit"/>
+
+                    <StackLayout Grid.Column="0" Padding="10" >
+                        <!-- Titre -->
+                        <Label Text="Covoiturage" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NavigateToCovoiturage" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="MediumPurple">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Image à droite -->
+                    <Image Source="loisirs.png" Grid.Column="1" Aspect="AspectFit"/>
+
+                    <StackLayout Grid.Column="0" Padding="10" >
+                        <!-- Titre -->
+                        <Label Text="Loisirs" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NavigateToLoisirs" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="DimGray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Image à droite -->
+                    <Image Source="sondages.png" Grid.Column="1" Aspect="AspectFit"/>
+
+                    <StackLayout Grid.Column="0" Padding="10" >
+                        <!-- Titre -->
+                        <Label Text="Sondages" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NavigateToSondages" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

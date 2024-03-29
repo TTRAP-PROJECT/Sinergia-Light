@@ -9,9 +9,9 @@ public partial class EvenementsSportifs : ContentPage
 		InitializeComponent();
 
         // Créer une instance de votre ViewModel
-        ViewModel viewModel = new ViewModel();
+        EvenementsSportifsModel evenementsSportifs = new EvenementsSportifsModel();
 
         // Définir le BindingContext sur votre ViewModel
-        BindingContext = viewModel;
+        BindingContext = evenementsSportifs;
     }
 }

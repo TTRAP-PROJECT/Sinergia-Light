@@ -33,12 +33,22 @@ namespace firstMobileApp.Class
         public async Task<string> GetPostData(string endpoint)
         {
             var url = "http://192.168.125.11:81/api"+endpoint;
-            var client = new HttpClient();
-            var response = await client.GetAsync(url);
+
+            var response = await _client.GetAsync(url);
 
             var jsonResponse = await response.Content.ReadAsStringAsync();
 
             return jsonResponse;
+        }
+
+        public async Task<string> PostData(string endpoint, string jsonData)
+        {
+            var url = "http://192.168.125.11:81/api" + endpoint;
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await _client.PostAsync(url, content);
+
+
+            return await response.Content.ReadAsStringAsync();
         }
     }
 }

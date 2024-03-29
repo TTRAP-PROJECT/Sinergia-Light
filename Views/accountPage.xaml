@@ -2,21 +2,58 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="firstMobileApp.Views.accountPage"
-             Title="accountPage"
+             Title="Mon Compte"
              Shell.TitleColor="White"
              
              >
   
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Test1" IconImageSource="dora.png"/>
-       
-
-    </ContentPage.ToolbarItems>
     
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Text="Argent"
+            Background="LightGray"
+            FontSize="Title" 
+            FontAttributes="Bold"
+            VerticalOptions="EndAndExpand" 
+            HorizontalOptions="End" 
+            Margin="10,10,10,10"
+        />
+        <Label 
+            Text="Nom + Prenom"
+            Background="LightGray"
+            FontSize="Title" 
+            FontAttributes="Bold"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" 
+            Margin="10,10,10,10"
+        />
+        <Label 
+            Text="Classe"
+            Background="LightGray"
+            FontSize="Title" 
+            FontAttributes="Bold"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" 
+            Margin="10,10,10,10"
+        />
+        <Label 
+            Text="Mail : @mail"
+            Background="LightGray"
+            FontSize="Title" 
+            FontAttributes="Bold"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" 
+            Margin="10,10,10,10"
+        />
+
+        <Label 
+            Text="Dernières annonces - voir plus / aucunes annonces "
+            Background="LightGray"
+            FontSize="Title" 
+            FontAttributes="Bold"
+            VerticalOptions="Start" 
+            HorizontalOptions="Start" 
+            Margin="10,10,10,10"
+        />
     </VerticalStackLayout>
 </ContentPage>

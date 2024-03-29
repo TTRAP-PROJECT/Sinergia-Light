@@ -15,7 +15,7 @@ namespace firstMobileApp.Views
             // Définir le BindingContext sur votre ViewModel
             BindingContext = viewModel;
         }
-        private async void NavigateToEvenementsSportifsPage(object sender, EventArgs e)
+        private async void NavigateToEvenementsSportifs(object sender, EventArgs e)
         {
             // Navigate to the desired page
             await Navigation.PushAsync(new EvenementsSportifs());
