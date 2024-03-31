@@ -20,6 +20,8 @@ public partial class Connection : ContentPage
         // Navigate to the desired page
         if (connectionModel.estValide)
         {
+            UserSessionManager.SetUser(UsernameEntry.Text);
+            UserSessionManager.UpdateUserData();
             await Navigation.PopAsync();
         }
     }

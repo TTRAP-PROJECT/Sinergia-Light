@@ -14,6 +14,7 @@ namespace firstMobileApp.Class
         public string EMAILUTILISATEUR { get; set; }
         public string MOTDEPASSE { get; set; }
         public int SOLDE { get; set; }
-
+        public int NBCOOKIES { get; set; }
     }
 }
+

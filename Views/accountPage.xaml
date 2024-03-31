@@ -10,22 +10,24 @@
     
     <VerticalStackLayout>
         <Label 
-            Text="Argent"
+            Text=""
             Background="LightGray"
             FontSize="Title" 
             FontAttributes="Bold"
             VerticalOptions="EndAndExpand" 
             HorizontalOptions="End" 
             Margin="10,10,10,10"
+            x:Name="solde"
         />
         <Label 
-            Text="Nom + Prenom"
+            Text=""
             Background="LightGray"
             FontSize="Title" 
             FontAttributes="Bold"
             VerticalOptions="Start" 
             HorizontalOptions="Start" 
             Margin="10,10,10,10"
+            x:Name="nom"
         />
         <Label 
             Text="Classe"
@@ -37,13 +39,14 @@
             Margin="10,10,10,10"
         />
         <Label 
-            Text="Mail : @mail"
+            Text=""
             Background="LightGray"
             FontSize="Title" 
             FontAttributes="Bold"
             VerticalOptions="Start" 
             HorizontalOptions="Start" 
             Margin="10,10,10,10"
+            x:Name="email"
         />
 
         <Label 

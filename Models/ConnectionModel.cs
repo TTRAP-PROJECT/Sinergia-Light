@@ -30,17 +30,9 @@ namespace firstMobileApp.Models
         public async Task LoadData()
         {
             // Créer un objet pour stocker les données à envoyer dans le corps de la requête
-            var data = new Dictionary<string, string>
-            {
-                { "email", login },
-                { "password", password }
-            };
-            
-            // Convertir les données en JSON
-            string jsonData = JsonConvert.SerializeObject(data);
 
             // Appeler la méthode PostData de votre API en passant le chemin d'URL et les données JSON
-            var result = await api.PostData("/user/validation?email=tombury59@hotmail.com&password=password", "{}");
+            var result = await api.PostData($"/user/validation?email={login}&password={password}", "{}");
 
             // Désérialiser la réponse de la requête
             estValide = result == "true";

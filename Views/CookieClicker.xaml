@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="firstMobileApp.Views.CookieClicker"
+             Title="CookieClicker">
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Button Text="Cliquez sur le cookie !" Clicked="CookieButton_Clicked"/>
+        <Label x:Name="CookieCountLabel" Text="0" FontSize="Large" Margin="0,20"/>
+    </StackLayout>
+</ContentPage>

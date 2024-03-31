@@ -46,7 +46,7 @@
 
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Images\synergia.jpg" Color="#FFFFFF" BaseSize="256,256" />
+		<MauiSplashScreen Include="Resources\Images\synergia.png" Color="#FFFFFF" BaseSize="256,256" />
 		
 		
 
@@ -70,6 +70,14 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Models\UserModel.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Models\UserModel.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -115,6 +123,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Connection.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CookieClicker.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Covoiturage.xaml">
