@@ -28,7 +28,11 @@
 
                                 <StackLayout Grid.Column="0" Padding="10">
                                     <!-- Titre -->
-                                    <Label Text="{Binding NomFilm}" FontSize="Title" FontAttributes="Bold"/>
+                                    <Label Text="{Binding NomFilm}" FontSize="Title" FontAttributes="Bold">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="NavigateToCinemaDetails"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
 
                                     <!-- Description -->
                                     <Label Text="{Binding LieuFilm}" FontSize="Body"/>

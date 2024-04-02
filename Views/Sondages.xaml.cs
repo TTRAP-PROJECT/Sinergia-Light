@@ -9,9 +9,9 @@ public partial class Sondages : ContentPage
 		InitializeComponent();
 
         // Créer une instance de votre ViewModel
-        ViewModel viewModel = new ViewModel();
+        SondagesModel sondagesModel = new SondagesModel();
 
         // Définir le BindingContext sur votre ViewModel
-        BindingContext = viewModel;
+        BindingContext = sondagesModel;
     }
 }

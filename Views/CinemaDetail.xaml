@@ -1,0 +1,45 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="firstMobileApp.Views.CinemaDetail"
+             Title="CinemaDetail"
+             BackgroundColor="LightSkyBlue">
+    <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <!-- Titre du film -->
+        <Label Text="{Binding Film.NomFilm}" 
+               FontSize="Large" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               Margin="20,20"
+               />
+
+        <!-- Lieu du film -->
+        <Label Text="{Binding Film.LieuFilm}"
+               FontSize="Medium"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               Margin="20,20"
+               />
+
+        <!-- Date et heure du film -->
+        <Label Text="{Binding Film.DateHeureFilm, StringFormat='Date et heure : {0:dd/MM/yyyy HH:mm}'}"
+               FontSize="Medium"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               Margin="20,20"
+               />
+
+        <Label Text=""
+           FontSize="Medium"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand"
+           Margin="20,20"
+           x:Name="description"
+        />
+
+        <Button Clicked="ReserverButton_Clicked"
+                Margin="20,20"
+                Text="Reserver"
+                />
+    </VerticalStackLayout>
+</ContentPage>

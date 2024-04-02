@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,8 @@ namespace firstMobileApp.Class
         public string LieuFilm { get; set; }
         public string NomFilm { get; set; }
         public DateTime DateHeureFilm { get; set; }
+
+        [JsonProperty("s_e_r_v_i_c_e")]
+        public Services Service { get; set; }
     }
 }

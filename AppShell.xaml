@@ -17,11 +17,6 @@
             <ShellContent ContentTemplate="{DataTemplate local:HomePage}" Route="home"/>
         </Tab>
         <Tab 
-            Title="Messages"
-            Icon="talk_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate views:CookieClicker}" Route="talk" />
-        </Tab>
-        <Tab 
             Title="Ajouter"
             Icon="plus_icon.png">
             <ShellContent ContentTemplate="{DataTemplate views:addPage}" Route="add"/>

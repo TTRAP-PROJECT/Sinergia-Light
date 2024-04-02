@@ -122,6 +122,9 @@
 	  <MauiXaml Update="Views\Cinema.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\CinemaDetail.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Connection.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
