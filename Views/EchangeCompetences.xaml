@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="firstMobileApp.Views.EchangeConnaissances"
-             Title="EchangeConnaissances">
+             x:Class="firstMobileApp.Views.EchangeCompetences"
+             Title="Echange de compétences">
     <ScrollView>
         <StackLayout>
             <SearchBar x:Name="searchBar"
-       SearchCommand="{Binding FilterCommand}"
-       SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"
-       Placeholder="Filter" Margin="0,10,10,0"/>
-            <Picker x:Name="myPicker" Title="Sélectionnez une activité"
-        TextColor="Black" BackgroundColor="White" FontSize="16"
-        FontAttributes="Bold" Margin="10,10,10,10"/>
-            <CollectionView ItemsSource="{Binding EventList}">
+               Text="{Binding FilterText}"
+               SearchCommand="{Binding FilterCommand}"
+               SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"/>
+
+            <CollectionView ItemsSource="{Binding EchangeCompetencesList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="LightGreen">
+                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="SandyBrown">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
@@ -26,20 +24,21 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Image à droite -->
-                                <Image Source="{Binding EventPhoto}" Grid.Column="1" Aspect="AspectFit"/>
+                                <Image Source="livre.png" Grid.Column="1" Aspect="AspectFit"/>
 
                                 <StackLayout Grid.Column="0" Padding="10">
                                     <!-- Titre -->
-                                    <Label Text="{Binding Title}" FontSize="Title" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Matiere}" FontSize="Title" FontAttributes="Bold">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="NavigateToCoursDetails"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
 
                                     <!-- Description -->
-                                    <Label Text="{Binding Description}" FontSize="Body"/>
-
-                                    <!-- Photo de profil -->
-                                    <Image Source="{Binding ProfilePhoto}" HeightRequest="40" WidthRequest="40" Aspect="AspectFill" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Niveau.LibelleNiveau}" FontSize="Body"/>
 
                                     <!-- Date -->
-                                    <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Micro" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Service.DatePrevue, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Medium" HorizontalOptions="Fill"/>
                                 </StackLayout>
                             </Grid>
                         </Frame>

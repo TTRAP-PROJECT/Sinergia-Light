@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace firstMobileApp.Class
 {
-    public class Sports
+    public class Niveau
     {
-        public int IdSport { get; set; }
-        public string LibelleSport { get; set; }
+        public int IdNiveau { get; set; }
+        public string LibelleNiveau { get; set; }
     }
 }

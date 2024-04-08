@@ -1,16 +1,56 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:firstMobileApp"
              x:Class="firstMobileApp.HomePage"
              Title="Accueil">
-    
-    
-    <ScrollView>
-        <CarouselView></CarouselView>
-    </ScrollView>
-    
-    
-    
+
+
+    <StackLayout>
+        <!-- Titre Annonces -->
+        <Label Text="Annonces" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10" />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <!-- Définition de la première rangée pour le CarouselView -->
+                <RowDefinition Height="*" />
+                <!-- Définition de la deuxième rangée pour la description -->
+                <RowDefinition Height="2*"/>
+                <!-- Définition de la troisième rangée pour la date de publication -->
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!-- CarouselView -->
+            <CarouselView Grid.Row="0" ItemsSource="{Binding AnnoncesList}" BackgroundColor="LightGray" PeekAreaInsets="10">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10" Padding="10" CornerRadius="10" BackgroundColor="White">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <!-- Définition de la première rangée pour le titre -->
+                                    <RowDefinition Height="Auto" />
+                                    <!-- Définition de la deuxième rangée pour la description -->
+                                    <RowDefinition Height="2*" />
+                                    <!-- Définition de la troisième rangée pour la date de publication -->
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <!-- Titre -->
+                                <Label Grid.Row="0" Text="{Binding Titre}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Start" Margin="5,5" />
+
+                                <!-- Description -->
+                                <ScrollView Grid.Row="1">
+                                    <Label Text="{Binding Description}" FontSize="Small" Margin="5,5"/>
+                                </ScrollView>
+
+                                <!-- Date de publication -->
+                                <Label Text="{Binding DatePublication, StringFormat='{0:dd/MM/yyyy HH:mm}'}" Grid.Row="2" HorizontalOptions="End" VerticalOptions="End" FontSize="Small" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <!-- Autre contenu de la page -->
+        </Grid>
+    </StackLayout>
 
 </ContentPage>

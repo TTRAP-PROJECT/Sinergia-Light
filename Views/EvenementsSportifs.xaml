@@ -2,17 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="firstMobileApp.Views.EvenementsSportifs"
-             Title="EvenementsSportifs">
+             Title="EvenementsSportifs"
+             >
     <ScrollView>
         <StackLayout>
             <SearchBar x:Name="searchBar"
-                Text="{Binding FilterText}"
-                SearchCommand="{Binding FilterCommand}"
-                SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"/>
+       Text="{Binding FilterText}"
+       SearchCommand="{Binding FilterCommand}"
+       SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"/>
+
             <CollectionView ItemsSource="{Binding EvenementsSportifsList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="LightCoral">
+                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="IndianRed">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
@@ -22,13 +24,22 @@
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Image Source="des_sports.jpg" Grid.Column="1" Aspect="AspectFit"/>
+                                <!-- Image à droite -->
+                                <Image Source="des_sports.png" Grid.Column="1" Aspect="AspectFit"/>
+
                                 <StackLayout Grid.Column="0" Padding="10">
                                     <!-- Titre -->
-                                    <Label Text="{Binding Sport.LibelleSport}" FontSize="Body" FontAttributes="Bold"/>
-                                    <Label Text="{Binding IdSport}" FontSize="Body"/>
+                                    <Label Text="{Binding LibelleSport}" FontSize="Title" FontAttributes="Bold">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="NavigateToSportDetails"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                    <!-- Description -->
+                                    <Label Text="{Binding LieuEvent}" FontSize="Body"/>
+
                                     <!-- Date -->
-                                    <Label Text="{Binding DateEvent, StringFormat='{0:dd/MM/yyyy} '}" FontSize="Micro" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding DateEvent, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Medium" HorizontalOptions="Fill"/>
                                 </StackLayout>
                             </Grid>
                         </Frame>

@@ -11,47 +11,47 @@ using System.Windows.Input;
 
 namespace firstMobileApp.Models
 {
-    internal class LoisirsModel : INotifyPropertyChanged
+    internal class EchangesCompetencesModel : INotifyPropertyChanged
     {
         API api;
-        private ObservableCollection<Loisirs> _loisirsList;
+        private ObservableCollection<EchangeCompetences> _echangeCompetencesList;
         private string _filterText;
 
-        public LoisirsModel()
+        public EchangesCompetencesModel()
         {
             api = new API();
-            LoisirsList = new ObservableCollection<Loisirs>();
+            EchangeCompetencesList = new ObservableCollection<EchangeCompetences>();
             LoadData();
             FilterCommand = new Command<string>(Filter);
         }
 
         public async void LoadData()
         {
-            var result = await api.GetPostData("/loisirs");
-            List<Loisirs> loisirsList = JsonConvert.DeserializeObject<List<Loisirs>>(result);
+            var result = await api.GetPostData("/echangeCompetences");
+            List<EchangeCompetences> echangesCompetences = JsonConvert.DeserializeObject<List<EchangeCompetences>>(result);
 
             // Effacez la liste actuelle avant d'ajouter de nouveaux éléments
-            LoisirsList.Clear();
+            EchangeCompetencesList.Clear();
 
-            // Ajoutez les éléments à la liste LoisirsList
-            foreach (var loisir in loisirsList)
+            // Ajoutez les éléments à la liste CinemaList
+            foreach (var echangeCompetences in echangesCompetences)
             {
-                LoisirsList.Add(loisir);
+                EchangeCompetencesList.Add(echangeCompetences);
             }
 
             // Indiquez à l'interface utilisateur que la liste a été mise à jour
-            OnPropertyChanged("LoisirsList");
+            OnPropertyChanged("EchangeCompetencesList");
         }
 
-        public ObservableCollection<Loisirs> LoisirsList
+        public ObservableCollection<EchangeCompetences> EchangeCompetencesList
         {
-            get { return _loisirsList; }
+            get { return _echangeCompetencesList; }
             set
             {
-                if (_loisirsList != value)
+                if (_echangeCompetencesList != value)
                 {
-                    _loisirsList = value;
-                    OnPropertyChanged(nameof(LoisirsList));
+                    _echangeCompetencesList = value;
+                    OnPropertyChanged(nameof(EchangeCompetencesList));
                 }
             }
         }
@@ -79,8 +79,8 @@ namespace firstMobileApp.Models
                 return;
             }
 
-            var filteredList = LoisirsList.Where(c => c.LibelleLoisir.ToLower().Contains(searchText.ToLower())).ToList();
-            LoisirsList = new ObservableCollection<Loisirs>(filteredList);
+            var filteredList = EchangeCompetencesList.Where(c => c.Matiere.ToLower().Contains(searchText.ToLower())).ToList();
+            EchangeCompetencesList = new ObservableCollection<EchangeCompetences>(filteredList);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

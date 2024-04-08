@@ -17,11 +17,6 @@
             <ShellContent ContentTemplate="{DataTemplate local:HomePage}" Route="home"/>
         </Tab>
         <Tab 
-            Title="Ajouter"
-            Icon="plus_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate views:addPage}" Route="add"/>
-        </Tab>
-        <Tab 
             Title="Recherche"
             Icon="search_icon.png">   
             <ShellContent ContentTemplate="{DataTemplate views:searchPage}" Route="search"/>

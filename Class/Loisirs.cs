@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,10 @@ namespace firstMobileApp.Class
 {
     public class Loisirs
     {
-        public int IdLoisir { get; set; }
+        public int IdService { get; set; }
         public string LibelleLoisir { get; set; }
+        public int NombreDeReservations { get; set; }
+        [JsonProperty("s_e_r_v_i_c_e")]
+        public Services Service { get; set; }
     }
 }

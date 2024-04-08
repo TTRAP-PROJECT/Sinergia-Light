@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="firstMobileApp.Views.CovoiturageDetail"
+             Title="CovoiturageDetail">
+    <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <!-- Titre du Trajet -->
+        <Label Text="" 
+           FontSize="Large" 
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand"
+           Margin="20,20"
+           x:Name="trajet"
+           />
+
+        <!-- Date et heure du film -->
+        <Label Text="{Binding Trajet.DateCovoit, StringFormat='Date et heure : {0:dd/MM/yyyy HH:mm}'}"
+           FontSize="Medium"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand"
+           Margin="20,20"
+           />
+
+        <Label Text=""
+           FontSize="Medium"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand"
+           Margin="20,20"
+           x:Name="description"
+        />
+
+        <Button Clicked="ReserverButton_Clicked"
+            Margin="20,20"
+            Text="Reserver"
+            />
+    </VerticalStackLayout>
+</ContentPage>

@@ -25,7 +25,6 @@ namespace firstMobileApp.Views
 
         private void ReserverButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
         }
     }
 }

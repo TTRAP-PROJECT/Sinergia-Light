@@ -20,10 +20,10 @@ namespace firstMobileApp.Views
             // Navigate to the desired page
             await Navigation.PushAsync(new EvenementsSportifs());
         }
-        private async void NavigateToEchangeConnaissances(object sender, EventArgs e)
+        private async void NavigateToEchangeCompetences(object sender, EventArgs e)
         {
             // Navigate to the desired page
-            await Navigation.PushAsync(new EchangeConnaissances());
+            await Navigation.PushAsync(new EchangeCompetences());
         }
         private async void NavigateToCinema(object sender, EventArgs e)
         {

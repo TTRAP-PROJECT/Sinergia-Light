@@ -9,9 +9,14 @@ public partial class Loisirs : ContentPage
 		InitializeComponent();
 
         // Créer une instance de votre ViewModel
-        ViewModel viewModel = new ViewModel();
+        LoisirsModel loisirsModel = new LoisirsModel();
 
         // Définir le BindingContext sur votre ViewModel
-        BindingContext = viewModel;
+        BindingContext = loisirsModel;
+    }
+
+    private void NavigateToLoisirsDetails(object sender, TappedEventArgs e)
+    {
+
     }
 }

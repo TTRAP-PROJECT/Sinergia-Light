@@ -1,4 +1,5 @@
-﻿using firstMobileApp.Class;
+﻿
+using firstMobileApp.Class;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,47 +12,47 @@ using System.Windows.Input;
 
 namespace firstMobileApp.Models
 {
-    internal class LoisirsModel : INotifyPropertyChanged
+    internal class CovoituragesModel : INotifyPropertyChanged
     {
         API api;
-        private ObservableCollection<Loisirs> _loisirsList;
+        private ObservableCollection<Covoiturage> _covoituragesList;
         private string _filterText;
 
-        public LoisirsModel()
+        public CovoituragesModel()
         {
             api = new API();
-            LoisirsList = new ObservableCollection<Loisirs>();
+            CovoituragesList = new ObservableCollection<Covoiturage>();
             LoadData();
             FilterCommand = new Command<string>(Filter);
         }
 
         public async void LoadData()
         {
-            var result = await api.GetPostData("/loisirs");
-            List<Loisirs> loisirsList = JsonConvert.DeserializeObject<List<Loisirs>>(result);
+            var result = await api.GetPostData("/covoiturages");
+            List<Covoiturage> covoituragesList = JsonConvert.DeserializeObject<List<Covoiturage>>(result);
 
             // Effacez la liste actuelle avant d'ajouter de nouveaux éléments
-            LoisirsList.Clear();
+            CovoituragesList.Clear();
 
-            // Ajoutez les éléments à la liste LoisirsList
-            foreach (var loisir in loisirsList)
+            // Ajoutez les éléments à la liste CovoituragesList
+            foreach (var covoiturage in covoituragesList)
             {
-                LoisirsList.Add(loisir);
+                CovoituragesList.Add(covoiturage);
             }
 
             // Indiquez à l'interface utilisateur que la liste a été mise à jour
-            OnPropertyChanged("LoisirsList");
+            OnPropertyChanged("CovoituragesList");
         }
 
-        public ObservableCollection<Loisirs> LoisirsList
+        public ObservableCollection<Covoiturage> CovoituragesList
         {
-            get { return _loisirsList; }
+            get { return _covoituragesList; }
             set
             {
-                if (_loisirsList != value)
+                if (_covoituragesList != value)
                 {
-                    _loisirsList = value;
-                    OnPropertyChanged(nameof(LoisirsList));
+                    _covoituragesList = value;
+                    OnPropertyChanged(nameof(CovoituragesList));
                 }
             }
         }
@@ -78,9 +79,8 @@ namespace firstMobileApp.Models
                 LoadData(); // Si la barre de recherche est vide, chargez toutes les données
                 return;
             }
-
-            var filteredList = LoisirsList.Where(c => c.LibelleLoisir.ToLower().Contains(searchText.ToLower())).ToList();
-            LoisirsList = new ObservableCollection<Loisirs>(filteredList);
+            var filteredList = CovoituragesList.Where(c => c.LieuDepart.ToLower().Contains(searchText.ToLower()) || c.LieuArrivee.ToLower().Contains(searchText.ToLower())).ToList();
+            CovoituragesList = new ObservableCollection<Covoiturage>(filteredList);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
