@@ -1,3 +1,4 @@
+﻿using firstMobileApp.Class;
 using firstMobileApp.Models;
 
 namespace firstMobileApp.Views;
@@ -7,16 +8,25 @@ public partial class Loisirs : ContentPage
 	public Loisirs()
 	{
 		InitializeComponent();
-
-        // Cr�er une instance de votre ViewModel
+        ToolbarItem soldeToolbarItem = new ToolbarItem();
+        soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰"; // Remplacez 100 par le solde réel de l'utilisateur
+        ToolbarItems.Add(soldeToolbarItem);
+        // Créer une instance de votre ViewModel
         LoisirsModel loisirsModel = new LoisirsModel();
 
-        // D�finir le BindingContext sur votre ViewModel
+        // Définir le BindingContext sur votre ViewModel
         BindingContext = loisirsModel;
     }
 
-    private void NavigateToLoisirsDetails(object sender, TappedEventArgs e)
+    private async void NavigateToLoisirsDetails(object sender, TappedEventArgs e)
     {
+        var tappedLabel = sender as Label;
+        var idLoisir = (tappedLabel.BindingContext as Class.Loisirs).Service.IdService;
 
+        // Appelez votre méthode NavigateToCinemaDetails avec l'ID du film
+        if (idLoisir != null)
+        {
+            await Navigation.PushAsync(new LoisirsDetail(idLoisir));
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace firstMobileApp.Class
     public static class UserSessionManager
     {
         // Propriétés pour stocker les informations de l'utilisateur connecté
+        public static int Id { get; private set; }
         public static string Email { get; private set; }
         public static int Solde { get; private set; }
         public static int NBCookies { get; private set; }
@@ -41,6 +42,7 @@ namespace firstMobileApp.Class
 
             if (user != null)
             {
+                Id = user.IDUTILISATEUR;
                 Solde = user.SOLDE;
                 Prenom = user.PRENOMUTILISATEUR;
                 Nom = user.NOMUTILISATEUR;

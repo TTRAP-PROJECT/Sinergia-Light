@@ -20,6 +20,11 @@
            VerticalOptions="CenterAndExpand"
            Margin="20,20"
            />
+        <Label Text="{Binding Sport.Service.Prix, StringFormat='{0} 💰'}" 
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            Margin="20,20"/>
 
         <!-- Date et heure du film -->
         <Label Text="{Binding Sport.DateEvent, StringFormat='Date et heure : {0:dd/MM/yyyy HH:mm}'}"

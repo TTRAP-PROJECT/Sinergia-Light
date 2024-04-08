@@ -13,6 +13,11 @@
            Margin="20,20"
            x:Name="trajet"
            />
+        <Label Text="{Binding Trajet.Service.Prix, StringFormat='{0} 💰'}" 
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            Margin="20,20"/>
 
         <!-- Date et heure du film -->
         <Label Text="{Binding Trajet.DateCovoit, StringFormat='Date et heure : {0:dd/MM/yyyy HH:mm}'}"

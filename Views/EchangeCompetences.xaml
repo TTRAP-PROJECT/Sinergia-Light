@@ -36,6 +36,7 @@
 
                                     <!-- Description -->
                                     <Label Text="{Binding Niveau.LibelleNiveau}" FontSize="Body"/>
+                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Body"/>
 
                                     <!-- Date -->
                                     <Label Text="{Binding Service.DatePrevue, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Medium" HorizontalOptions="Fill"/>

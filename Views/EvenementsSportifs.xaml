@@ -37,6 +37,8 @@
 
                                     <!-- Description -->
                                     <Label Text="{Binding LieuEvent}" FontSize="Body"/>
+                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Body"/>
+
 
                                     <!-- Date -->
                                     <Label Text="{Binding DateEvent, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Medium" HorizontalOptions="Fill"/>

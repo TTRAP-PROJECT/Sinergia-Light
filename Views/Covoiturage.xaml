@@ -44,6 +44,7 @@
                                         </Label.GestureRecognizers>
                                     </Label>
 
+                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Body"/>
 
                                     <!-- Date -->
                                     <Label Text="{Binding DateCovoit, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Medium" HorizontalOptions="Fill"/>

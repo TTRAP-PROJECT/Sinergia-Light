@@ -150,6 +150,12 @@
 	  <MauiXaml Update="Views\Loisirs.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\LoisirsDetail.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Paiment.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\searchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
