@@ -24,15 +24,15 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <!-- Titre -->
-                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding NomSondage}" FontSize="Title" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding NomSondage}" FontSize="Title" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="10,10"/>
 
                                 <!-- Date -->
                                 <Label Grid.Row="1" Grid.Column="0" Text="{Binding DateFin, StringFormat='Fin : {0:dd/MM/yyyy}'}" FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
 
                                 <!-- Boutons -->
                                 <StackLayout Grid.Row="2" Grid.Column="0" Padding="10" Orientation="Horizontal" HorizontalOptions="Center">
-                                    <Button Text="Pour" HorizontalOptions="CenterAndExpand" Margin="10,10"/>
-                                    <Button Text="Contre" HorizontalOptions="CenterAndExpand" Margin="10,10"/>
+                                    <Button Text="Pour" HorizontalOptions="CenterAndExpand" Margin="10,10" Clicked="PourButton_Clicked"/>
+                                    <Button Text="Contre" HorizontalOptions="CenterAndExpand" Margin="10,10" Clicked="ContreButton_Clicked"/>
                                 </StackLayout>
                             </Grid>
                         </Frame>

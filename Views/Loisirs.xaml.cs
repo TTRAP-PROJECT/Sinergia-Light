@@ -5,14 +5,16 @@ namespace firstMobileApp.Views;
 
 public partial class Loisirs : ContentPage
 {
-	public Loisirs()
+    LoisirsModel loisirsModel;
+
+    public Loisirs()
 	{
 		InitializeComponent();
         ToolbarItem soldeToolbarItem = new ToolbarItem();
         soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰"; // Remplacez 100 par le solde réel de l'utilisateur
         ToolbarItems.Add(soldeToolbarItem);
         // Créer une instance de votre ViewModel
-        LoisirsModel loisirsModel = new LoisirsModel();
+        loisirsModel = new LoisirsModel();
 
         // Définir le BindingContext sur votre ViewModel
         BindingContext = loisirsModel;
@@ -28,5 +30,13 @@ public partial class Loisirs : ContentPage
         {
             await Navigation.PushAsync(new LoisirsDetail(idLoisir));
         }
+    }
+
+    private void RefreshButton_Clicked(object sender, EventArgs e)
+    {
+        loisirsModel = new LoisirsModel();
+
+        // Définir le BindingContext sur votre ViewModel
+        BindingContext = loisirsModel;
     }
 }

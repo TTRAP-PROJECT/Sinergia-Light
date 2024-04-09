@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace firstMobileApp.Models
 {
-    internal class EvenementsSportifsModel : INotifyPropertyChanged
+    public class EvenementsSportifsModel : INotifyPropertyChanged
     {
         API api;
         private ObservableCollection<EvenementsSportifs> _evenementsSportifsList;

@@ -9,7 +9,7 @@
        Text="{Binding FilterText}"
        SearchCommand="{Binding FilterCommand}"
        SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"/>
-
+            <Button Text="Rafraîchir" Clicked="RefreshButton_Clicked"/>
             <CollectionView ItemsSource="{Binding LoisirsList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -35,9 +35,12 @@
                                     </Label>
 
                                     <!-- Description -->
-                                    <Label Text="{Binding Service.LieuService}" FontSize="Body"/>
-                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Body"/>
-
+                                    <Label Text="{Binding Service.LieuService, StringFormat='{0} 📍'}" FontSize="Medium"/>
+                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Medium"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding NombreDeReservations, StringFormat='{0} / '}" FontSize="Medium"/>
+                                        <Label Text="{Binding Service.NbPersonnesMax, StringFormat='{0} 👥'}" FontSize="Medium"/>
+                                    </StackLayout>
                                     <!-- Date -->
                                     <Label Text="{Binding Service.DatePrevue, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Medium" HorizontalOptions="Fill"/>
                                 </StackLayout>

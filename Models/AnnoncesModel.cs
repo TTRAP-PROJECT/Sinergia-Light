@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace firstMobileApp.Models
 {
-    internal class AnnoncesModel : INotifyPropertyChanged
+    public class AnnoncesModel : INotifyPropertyChanged
     {
         API api;
         private ObservableCollection<Annonce> _annonceList;

@@ -15,14 +15,27 @@ public partial class Connection : ContentPage
     }
     private async void LoginButton_Clicked(object sender, EventArgs e)
     {
-        ConnectionModel connectionModel = new(UsernameEntry.Text, PasswordEntry.Text);
-        await connectionModel.LoadData();
-        // Navigate to the desired page
-        if (connectionModel.estValide)
+        try
         {
-            UserSessionManager.SetUser(UsernameEntry.Text);
-            UserSessionManager.UpdateUserData();
-            await Navigation.PopAsync();
+            ConnectionModel connectionModel = new(UsernameEntry.Text, PasswordEntry.Text);
+            await connectionModel.LoadData();
+            // Navigate to the desired page
+            if (connectionModel.estValide)
+            {
+                UserSessionManager.SetUser(UsernameEntry.Text);
+                UserSessionManager.UpdateUserData();
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                await DisplayAlert("Connexion échouée", "Login ou mot de passe incorrect.", "OK");
+            }
         }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Erreur connexion", "Une erreur est survenue", "OK");
+
+        }
+
     }
 }

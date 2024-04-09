@@ -4,53 +4,89 @@
              x:Class="firstMobileApp.HomePage"
              Title="Accueil">
 
+    <ScrollView>
+        <StackLayout>
+            <!-- Titre Annonces -->
+            <Label Text="Annonces" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10" />
 
-    <StackLayout>
-        <!-- Titre Annonces -->
-        <Label Text="Annonces" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <!-- Définition de la première rangée pour le CarouselView -->
+                    <RowDefinition Height="*" />
+                    <!-- Définition de la deuxième rangée pour la description -->
+                    <RowDefinition Height="2*"/>
+                    <!-- Définition de la troisième rangée pour la date de publication -->
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <!-- CarouselView -->
+                <CarouselView Grid.Row="0" ItemsSource="{Binding AnnoncesModel.AnnoncesList}" BackgroundColor="LightGray" PeekAreaInsets="10">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="10" Padding="10" CornerRadius="10" BackgroundColor="White">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <!-- Définition de la première rangée pour le titre -->
+                                        <RowDefinition Height="Auto" />
+                                        <!-- Définition de la deuxième rangée pour la description -->
+                                        <RowDefinition Height="2*" />
+                                        <!-- Définition de la troisième rangée pour la date de publication -->
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <!-- Définition de la première rangée pour le CarouselView -->
-                <RowDefinition Height="*" />
-                <!-- Définition de la deuxième rangée pour la description -->
-                <RowDefinition Height="2*"/>
-                <!-- Définition de la troisième rangée pour la date de publication -->
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <!-- CarouselView -->
-            <CarouselView Grid.Row="0" ItemsSource="{Binding AnnoncesList}" BackgroundColor="LightGray" PeekAreaInsets="10">
-                <CarouselView.ItemTemplate>
+                                    <!-- Titre -->
+                                    <Label Grid.Row="0" Text="{Binding Titre}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Start" Margin="5,5" />
+
+                                    <!-- Description -->
+                                    <ScrollView Grid.Row="1">
+                                        <Label Text="{Binding Description}" FontSize="Small" Margin="5,5"/>
+                                    </ScrollView>
+
+                                    <!-- Date de publication -->
+                                    <Label Text="{Binding DatePublication, StringFormat='{0:dd/MM/yyyy HH:mm}'}" Grid.Row="2" HorizontalOptions="End" VerticalOptions="End" FontSize="Small" />
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <!-- Autre contenu de la page -->
+            </Grid>
+            <Label Text="Liste des réservations" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10" />
+            <Button Text="Rafraichir" Clicked="Button_Clicked"/>
+            <CollectionView ItemsSource="{Binding ReservationModel.ReservationList}">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="10" Padding="10" CornerRadius="10" BackgroundColor="White">
+                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="IndianRed">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <!-- Définition de la première rangée pour le titre -->
-                                    <RowDefinition Height="Auto" />
-                                    <!-- Définition de la deuxième rangée pour la description -->
-                                    <RowDefinition Height="2*" />
-                                    <!-- Définition de la troisième rangée pour la date de publication -->
-                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
 
-                                <!-- Titre -->
-                                <Label Grid.Row="0" Text="{Binding Titre}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Start" Margin="5,5" />
+                                <!-- Image à droite -->
+                                <Image Source="des_sports.png" Grid.Column="1" Aspect="AspectFit"/>
 
-                                <!-- Description -->
-                                <ScrollView Grid.Row="1">
-                                    <Label Text="{Binding Description}" FontSize="Small" Margin="5,5"/>
-                                </ScrollView>
+                                <StackLayout Grid.Column="0" Padding="10">
+                                    <!-- Titre -->
+                                    <Label Text="{Binding Service.LibelleService}" FontSize="Title" FontAttributes="Bold">
 
-                                <!-- Date de publication -->
-                                <Label Text="{Binding DatePublication, StringFormat='{0:dd/MM/yyyy HH:mm}'}" Grid.Row="2" HorizontalOptions="End" VerticalOptions="End" FontSize="Small" />
+                                    </Label>
+
+                                    <!-- Description -->
+                                    <Label Text="{Binding Service.LieuService, StringFormat='{0} 📍'}" FontSize="Medium"/>
+                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Medium"/>
+
+                                    <!-- Date -->
+                                    <Label Text="{Binding Service.DatePrevue, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Medium" HorizontalOptions="Fill"/>
+                                </StackLayout>
                             </Grid>
                         </Frame>
                     </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
-
-            <!-- Autre contenu de la page -->
-        </Grid>
-    </StackLayout>
-
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

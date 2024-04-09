@@ -9,11 +9,11 @@
        Text="{Binding FilterText}"
        SearchCommand="{Binding FilterCommand}"
        SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"/>
-
+            <Button Text="Rafraîchir" Clicked="RefreshButton_Clicked"/>
             <CollectionView ItemsSource="{Binding CovoituragesList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="LightSkyBlue">
+                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="LightGreen">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
@@ -28,24 +28,23 @@
 
                                 <StackLayout Grid.Column="0" Padding="10">
                                     <!-- Titre -->
-                                    <Label Text="{Binding LieuDepart}" FontSize="Title" FontAttributes="Bold" >
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding LieuDepart, StringFormat='{0} ⮕ '}" FontSize="Large" FontAttributes="Bold" >
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="NavigateToCovoiturageDetails"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <Label Text="{Binding LieuArrivee}" FontSize="Large" FontAttributes="Bold" >
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="NavigateToCovoiturageDetails"/>
                                         </Label.GestureRecognizers>
                                     </Label>
-                                    <Label Text="Vers" FontSize="Title" FontAttributes="Bold" >
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="NavigateToCovoiturageDetails"/>
-                                        </Label.GestureRecognizers>
-                                    </Label>
-                                    <Label Text="{Binding LieuArrivee}" FontSize="Title" FontAttributes="Bold" >
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="NavigateToCovoiturageDetails"/>
-                                        </Label.GestureRecognizers>
-                                    </Label>
-
-                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Body"/>
-
+                                    </StackLayout>
+                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Medium"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding NombreDeReservations, StringFormat='{0} / '}" FontSize="Medium"/>
+                                        <Label Text="{Binding Service.NbPersonnesMax, StringFormat='{0} 👥'}" FontSize="Medium"/>
+                                    </StackLayout>
                                     <!-- Date -->
                                     <Label Text="{Binding DateCovoit, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Medium" HorizontalOptions="Fill"/>
                                 </StackLayout>

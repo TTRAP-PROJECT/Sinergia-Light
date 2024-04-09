@@ -32,6 +32,12 @@ public partial class Paiment : ContentPage
         {
             await DisplayAlert("Réservation réussie", "Le service a été réservé avec succès.", "OK");
             await Navigation.PopAsync();
+            await Navigation.PopAsync();
+        }
+        else
+        {
+
+            await DisplayAlert("Réservation échouée", "Le service n'a pas été réservé.", "OK");
         }
     }
 }

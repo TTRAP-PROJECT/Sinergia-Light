@@ -6,22 +6,11 @@
              Shell.TitleColor="White"
              
              >
-  
-    
+
+
     <VerticalStackLayout>
         <Label 
             Text=""
-            Background="LightGray"
-            FontSize="Title" 
-            FontAttributes="Bold"
-            VerticalOptions="EndAndExpand" 
-            HorizontalOptions="End" 
-            Margin="10,10,10,10"
-            x:Name="solde"
-        />
-        <Label 
-            Text=""
-            Background="LightGray"
             FontSize="Title" 
             FontAttributes="Bold"
             VerticalOptions="Start" 
@@ -29,18 +18,9 @@
             Margin="10,10,10,10"
             x:Name="nom"
         />
-        <Label 
-            Text="Classe"
-            Background="LightGray"
-            FontSize="Title" 
-            FontAttributes="Bold"
-            VerticalOptions="Start" 
-            HorizontalOptions="Start" 
-            Margin="10,10,10,10"
-        />
+        
         <Label 
             Text=""
-            Background="LightGray"
             FontSize="Title" 
             FontAttributes="Bold"
             VerticalOptions="Start" 
@@ -49,14 +29,5 @@
             x:Name="email"
         />
 
-        <Label 
-            Text="Dernières annonces - voir plus / aucunes annonces "
-            Background="LightGray"
-            FontSize="Title" 
-            FontAttributes="Bold"
-            VerticalOptions="Start" 
-            HorizontalOptions="Start" 
-            Margin="10,10,10,10"
-        />
     </VerticalStackLayout>
 </ContentPage>

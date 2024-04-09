@@ -5,7 +5,9 @@ namespace firstMobileApp.Views;
 
 public partial class Cinema : ContentPage
 {
-	public Cinema()
+    CinemaModel cinemaModel;
+
+    public Cinema()
 	{
 		InitializeComponent();
         ToolbarItem soldeToolbarItem = new ToolbarItem();
@@ -13,7 +15,7 @@ public partial class Cinema : ContentPage
         ToolbarItems.Add(soldeToolbarItem);
 
         // Créer une instance de votre ViewModel
-        CinemaModel cinemaModel = new CinemaModel();
+        cinemaModel = new CinemaModel();
 
         // Définir le BindingContext sur votre ViewModel
         BindingContext = cinemaModel;
@@ -31,5 +33,13 @@ public partial class Cinema : ContentPage
             await Navigation.PushAsync(new CinemaDetail(idFilm));
         }
         
+    }
+
+    private void RefreshButton_Clicked(object sender, EventArgs e)
+    {
+        cinemaModel = new CinemaModel();
+
+        // Définir le BindingContext sur votre ViewModel
+        BindingContext = cinemaModel;
     }
 }

@@ -49,7 +49,6 @@ namespace firstMobileApp.Class
 
             var response = await _client.PostAsync(url, content);
 
-
             return await response.Content.ReadAsStringAsync();
         }
     }

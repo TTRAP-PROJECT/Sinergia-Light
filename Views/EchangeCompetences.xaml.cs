@@ -5,7 +5,9 @@ namespace firstMobileApp.Views;
 
 public partial class EchangeCompetences : ContentPage
 {
-	public EchangeCompetences()
+    EchangesCompetencesModel echangesCompetencesModel;
+
+    public EchangeCompetences()
 	{
 		InitializeComponent();
         ToolbarItem soldeToolbarItem = new ToolbarItem();
@@ -31,5 +33,13 @@ public partial class EchangeCompetences : ContentPage
             await Navigation.PushAsync(new EchangeCompetencesDetails(idCours));
         }
 
+    }
+
+    private void RefreshButton_Clicked(object sender, EventArgs e)
+    {
+        EchangesCompetencesModel echangesCompetencesModel = new EchangesCompetencesModel();
+
+        // Définir le BindingContext sur votre ViewModel
+        BindingContext = echangesCompetencesModel;
     }
 }

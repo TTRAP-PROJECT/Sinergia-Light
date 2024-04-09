@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="firstMobileApp.Views.EchangeCompetencesDetails"
-             Title="EchangeCompetencesDetails">
+             Title="Details de l'échange de compétence">
     <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
         <!-- Titre du film -->
         <Label Text="{Binding Cours.Matiere}" 
@@ -14,13 +14,13 @@
        />
 
         <!-- Lieu du film -->
-        <Label Text="{Binding Cours.Niveau.LibelleNiveau}"
+        <Label Text="{Binding Cours.Niveau.LibelleNiveau, StringFormat='Niveau : {0}'}"
        FontSize="Medium"
        HorizontalOptions="Center"
        VerticalOptions="CenterAndExpand"
        Margin="20,20"
        />
-        <Label Text="{Binding Cours.Service.Prix, StringFormat='{0} 💰'}" 
+        <Label Text="{Binding Cours.Service.Prix, StringFormat='Prix : {0} 💰'}" 
             FontSize="Medium"
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand"
@@ -32,14 +32,20 @@
        VerticalOptions="CenterAndExpand"
        Margin="20,20"
        />
-
+        <Label Text="{}"
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            Margin="20,20"
+            x:Name="nb"
+        />
         <Label Text=""
-   FontSize="Medium"
-   HorizontalOptions="Center"
-   VerticalOptions="CenterAndExpand"
-   Margin="20,20"
-   x:Name="description"
-/>
+           FontSize="Medium"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand"
+           Margin="20,20"
+           x:Name="description"
+        />
 
         <Button Clicked="ReserverButton_Clicked"
         Margin="20,20"

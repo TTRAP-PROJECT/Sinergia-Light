@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace firstMobileApp.Class
 {
-    public class Cinema
+    public class Reservation
     {
-        public int IdService { get; set; }
-        public int NombreDeReservations { get; set; }
-        public string LieuFilm { get; set; }
-        public string NomFilm { get; set; }
-        public DateTime DateHeureFilm { get; set; }
-
+        public int IdReservation { get; set; }
+        public int IdAcheteur { get; set; }
+        public DateTime DateTransaction { get; set; }
         [JsonProperty("s_e_r_v_i_c_e")]
         public Services Service { get; set; }
     }

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="firstMobileApp.Views.EvenementsSportifs"
-             Title="EvenementsSportifs"
+             Title="Évènements sportifs"
              >
     <ScrollView>
         <StackLayout>
@@ -10,7 +10,7 @@
        Text="{Binding FilterText}"
        SearchCommand="{Binding FilterCommand}"
        SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"/>
-
+            <Button Text="Rafraîchir" Clicked="RefreshButton_Clicked"/>
             <CollectionView ItemsSource="{Binding EvenementsSportifsList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -36,9 +36,12 @@
                                     </Label>
 
                                     <!-- Description -->
-                                    <Label Text="{Binding LieuEvent}" FontSize="Body"/>
-                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Body"/>
-
+                                    <Label Text="{Binding Service.LieuService, StringFormat='{0} 📍'}" FontSize="Medium"/>
+                                    <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Medium"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding NombreDeReservations, StringFormat='{0} / '}" FontSize="Medium"/>
+                                        <Label Text="{Binding Service.NbPersonnesMax, StringFormat='{0} 👥'}" FontSize="Medium"/>
+                                    </StackLayout>
 
                                     <!-- Date -->
                                     <Label Text="{Binding DateEvent, StringFormat='{0:dd/MM/yyyy HH:mm}'}" FontSize="Medium" HorizontalOptions="Fill"/>

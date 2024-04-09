@@ -4,7 +4,7 @@
     <VerticalStackLayout Margin="20">
         <Image Source="synergia.g" Margin="0,20,0,40" HorizontalOptions="CenterAndExpand"/>
         <Label Text="Connexion" FontSize="Large" HorizontalOptions="Center"/>
-        <Entry Placeholder="Nom d'utilisateur" x:Name="UsernameEntry" Margin="0,20" />
+        <Entry Placeholder="Email" x:Name="UsernameEntry" Margin="0,20" />
         <Entry Placeholder="Mot de passe" IsPassword="True" x:Name="PasswordEntry" Margin="0,20"/>
         <Button Text="Se connecter" Clicked="LoginButton_Clicked" Margin="0,40"/>
     </VerticalStackLayout>

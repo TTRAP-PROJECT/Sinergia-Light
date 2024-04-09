@@ -27,19 +27,56 @@ public partial class EchangeCompetencesDetails : ContentPage
         // Définir le BindingContext sur votre ViewModel
         BindingContext = echangeCompetences;
         description.Text = "Description : " + echangeCompetences.Cours.Service.Description;
+        nb.Text = "Réservations : " + echangeCompetences.Cours.NombreDeReservations.ToString() + " / " + echangeCompetences.Cours.Service.NbPersonnesMax.ToString();
     }
 
     private async void ReserverButton_Clicked(object sender, EventArgs e)
     {
-        var idService = echangeCompetences.Cours.Service.IdService;
-        var libelle = echangeCompetences.Cours.Service.LibelleService;
+        var idCours = echangeCompetences.Cours.Service.IdService;
+        var libelle = echangeCompetences.Cours.Matiere;
         var prix = echangeCompetences.Cours.Service.Prix;
+        var date = echangeCompetences.Cours.Service.DatePrevue;
+        var nbReservation = echangeCompetences.Cours.NombreDeReservations;
+        var nbReservationMax = echangeCompetences.Cours.Service.NbPersonnesMax;
 
+        // Appelez votre méthode EstReservable pour vérifier si la réservation est possible
+        List<bool> listeBools = await ExceptionModel.EstReservable(idCours, (int)prix, date, nbReservationMax, nbReservation);
 
-        // Appelez votre méthode NavigateToCinemaDetails avec l'ID du film
-        if (idService != null)
+        // Liste pour stocker les messages d'erreur
+        List<string> erreurs = new List<string>();
+
+        // Vérifier chaque booléen renvoyé par EstReservable
+        if (listeBools[0])
         {
-            await Navigation.PushAsync(new Paiment(idService, libelle, (int)prix));
+            erreurs.Add("Date dépassée.");
+        }
+        if (listeBools[1])
+        {
+            erreurs.Add("Service déjà réservé.");
+        }
+        if (listeBools[2])
+        {
+            erreurs.Add("Plus de place disponible.");
+        }
+        if (listeBools[3])
+        {
+            erreurs.Add("Solde insuffisant.");
+        }
+
+        // Afficher une alerte si des erreurs ont été trouvées, sinon procéder au paiement
+        if (erreurs.Count > 0)
+        {
+            string messageErreur = "";
+            foreach (string err in erreurs)
+            {
+                messageErreur += "- " + err + "\n";
+            }
+            await DisplayAlert("Impossible de réserver :", messageErreur, "OK");
+        }
+        else
+        {
+            // Aucune erreur, procéder au paiement
+            await Navigation.PushAsync(new Paiment(idCours, libelle, (int)prix));
         }
     }
 }

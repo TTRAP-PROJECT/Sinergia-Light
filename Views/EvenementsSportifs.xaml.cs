@@ -5,14 +5,16 @@ namespace firstMobileApp.Views;
 
 public partial class EvenementsSportifs : ContentPage
 {
-	public EvenementsSportifs()
+    EvenementsSportifsModel evenementsSportifs;
+
+    public EvenementsSportifs()
 	{
 		InitializeComponent();
         ToolbarItem soldeToolbarItem = new ToolbarItem();
         soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰"; // Remplacez 100 par le solde réel de l'utilisateur
         ToolbarItems.Add(soldeToolbarItem);
         // Créer une instance de votre ViewModel
-        EvenementsSportifsModel evenementsSportifs = new EvenementsSportifsModel();
+        evenementsSportifs = new EvenementsSportifsModel();
 
         // Définir le BindingContext sur votre ViewModel
         BindingContext = evenementsSportifs;
@@ -32,4 +34,12 @@ public partial class EvenementsSportifs : ContentPage
 
     }
 
+    private void RefreshButton_Clicked(object sender, EventArgs e)
+    {
+        // Créer une instance de votre ViewModel
+        evenementsSportifs = new EvenementsSportifsModel();
+
+        // Définir le BindingContext sur votre ViewModel
+        BindingContext = evenementsSportifs;
+    }
 }

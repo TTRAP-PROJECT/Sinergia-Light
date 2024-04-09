@@ -8,12 +8,6 @@ namespace firstMobileApp.Views
         public searchPage()
         {
             InitializeComponent();
-
-            // Créer une instance de votre ViewModel
-            ViewModel viewModel = new ViewModel();
-
-            // Définir le BindingContext sur votre ViewModel
-            BindingContext = viewModel;
         }
         private async void NavigateToEvenementsSportifs(object sender, EventArgs e)
         {

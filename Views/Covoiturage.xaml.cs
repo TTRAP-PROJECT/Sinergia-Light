@@ -5,14 +5,16 @@ namespace firstMobileApp.Views;
 
 public partial class Covoiturage : ContentPage
 {
-	public Covoiturage()
+    CovoituragesModel covoituragesModel;
+
+    public Covoiturage()
 	{
 		InitializeComponent();
         ToolbarItem soldeToolbarItem = new ToolbarItem();
         soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰"; // Remplacez 100 par le solde réel de l'utilisateur
         ToolbarItems.Add(soldeToolbarItem);
         // Créer une instance de votre ViewModel
-        CovoituragesModel covoituragesModel = new CovoituragesModel();
+        covoituragesModel = new CovoituragesModel();
 
         // Définir le BindingContext sur votre ViewModel
         BindingContext = covoituragesModel;
@@ -28,5 +30,14 @@ public partial class Covoiturage : ContentPage
         {
             await Navigation.PushAsync(new CovoiturageDetail(idTrajet));
         }
+    }
+
+    private void RefreshButton_Clicked(object sender, EventArgs e)
+    {
+        // Créer une instance de votre ViewModel
+        covoituragesModel = new CovoituragesModel();
+
+        // Définir le BindingContext sur votre ViewModel
+        BindingContext = covoituragesModel;
     }
 }

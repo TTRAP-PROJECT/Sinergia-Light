@@ -26,20 +26,57 @@ public partial class CovoiturageDetail : ContentPage
         // Définir le BindingContext sur votre ViewModel
         BindingContext = covoiturageModel;
         description.Text = "Description : " + covoiturageModel.Trajet.Service.Description;
-        trajet.Text = covoiturageModel.Trajet.LieuDepart + " → " + covoiturageModel.Trajet.LieuArrivee;
+        trajet.Text = covoiturageModel.Trajet.LieuDepart + " ⮕ " + covoiturageModel.Trajet.LieuArrivee;
+        nb.Text = "Réservations : " + covoiturageModel.Trajet.NombreDeReservations.ToString() + " / " + covoiturageModel.Trajet.Service.NbPersonnesMax.ToString();
     }
 
     private async void ReserverButton_Clicked(object sender, EventArgs e)
     {
-        var idService = covoiturageModel.Trajet.Service.IdService;
+        var idTrajet = covoiturageModel.Trajet.Service.IdService;
         var libelle = trajet.Text;
         var prix = covoiturageModel.Trajet.Service.Prix;
+        var date = covoiturageModel.Trajet.Service.DatePrevue;
+        var nbReservation = covoiturageModel.Trajet.NombreDeReservations;
+        var nbReservationMax = covoiturageModel.Trajet.Service.NbPersonnesMax;
 
+        // Appelez votre méthode EstReservable pour vérifier si la réservation est possible
+        List<bool> listeBools = await ExceptionModel.EstReservable(idTrajet, (int)prix, date, nbReservationMax, nbReservation);
 
-        // Appelez votre méthode NavigateToCinemaDetails avec l'ID du film
-        if (idService != null)
+        // Liste pour stocker les messages d'erreur
+        List<string> erreurs = new List<string>();
+
+        // Vérifier chaque booléen renvoyé par EstReservable
+        if (listeBools[0])
         {
-            await Navigation.PushAsync(new Paiment(idService, libelle, (int)prix));
+            erreurs.Add("Date dépassée.");
+        }
+        if (listeBools[1])
+        {
+            erreurs.Add("Service déjà réservé.");
+        }
+        if (listeBools[2])
+        {
+            erreurs.Add("Plus de place disponible.");
+        }
+        if (listeBools[3])
+        {
+            erreurs.Add("Solde insuffisant.");
+        }
+
+        // Afficher une alerte si des erreurs ont été trouvées, sinon procéder au paiement
+        if (erreurs.Count > 0)
+        {
+            string messageErreur = "";
+            foreach (string err in erreurs)
+            {
+                messageErreur += "- " + err + "\n";
+            }
+            await DisplayAlert("Impossible de réserver :", messageErreur, "OK");
+        }
+        else
+        {
+            // Aucune erreur, procéder au paiement
+            await Navigation.PushAsync(new Paiment(idTrajet, libelle, (int)prix));
         }
     }
 }
