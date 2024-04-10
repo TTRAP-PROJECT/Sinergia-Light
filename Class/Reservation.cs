@@ -12,7 +12,6 @@ namespace firstMobileApp.Class
         public int IdReservation { get; set; }
         public int IdAcheteur { get; set; }
         public DateTime DateTransaction { get; set; }
-        [JsonProperty("s_e_r_v_i_c_e")]
         public Services Service { get; set; }
     }
 }

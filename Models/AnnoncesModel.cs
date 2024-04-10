@@ -22,7 +22,7 @@ namespace firstMobileApp.Models
             LoadData();
         }
 
-        private async void LoadData()
+        public async void LoadData()
         {
             var result = await api.GetPostData("/annonces");
             List<Annonce> annonceList = JsonConvert.DeserializeObject<List<Annonce>>(result);

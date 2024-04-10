@@ -18,7 +18,13 @@ public partial class Sondages : ContentPage
         // Définir le BindingContext sur votre ViewModel
         BindingContext = sondagesModel;
     }
-
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+        // Appeler la méthode de rafraîchissement des données lorsque la page apparaît
+        sondagesModel.LoadData();
+        
+    }
     private async void PourButton_Clicked(object sender, EventArgs e)
     {
         var tappedLabel = sender as Button;

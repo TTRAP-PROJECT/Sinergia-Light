@@ -52,22 +52,21 @@
                 <!-- Autre contenu de la page -->
             </Grid>
             <Label Text="Liste des réservations" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10" />
-            <Button Text="Rafraichir" Clicked="Button_Clicked"/>
-            <CollectionView ItemsSource="{Binding ReservationModel.ReservationList}">
+            <CollectionView ItemsSource="{Binding ReservationModel.ReservationList}" BackgroundColor="White">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Margin="10" Padding="0" CornerRadius="10" BackgroundColor="IndianRed">
+                        <Frame Margin="10" Padding="2"  BackgroundColor="LightGray">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="5*"/>
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Image à droite -->
-                                <Image Source="des_sports.png" Grid.Column="1" Aspect="AspectFit"/>
+                                <Button Grid.Column="1" Text="🗑"  BackgroundColor="LightGray" FontSize="Title" Clicked="ButtonTrash_Clicked" />
 
                                 <StackLayout Grid.Column="0" Padding="10">
                                     <!-- Titre -->
@@ -76,7 +75,6 @@
                                     </Label>
 
                                     <!-- Description -->
-                                    <Label Text="{Binding Service.LieuService, StringFormat='{0} 📍'}" FontSize="Medium"/>
                                     <Label Text="{Binding Service.Prix, StringFormat='{0} 💰'}" FontSize="Medium"/>
 
                                     <!-- Date -->

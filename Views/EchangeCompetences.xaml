@@ -9,7 +9,6 @@
                Text="{Binding FilterText}"
                SearchCommand="{Binding FilterCommand}"
                SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"/>
-            <Button Text="Rafraîchir" Clicked="RefreshButton_Clicked"/>
             <CollectionView ItemsSource="{Binding EchangeCompetencesList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

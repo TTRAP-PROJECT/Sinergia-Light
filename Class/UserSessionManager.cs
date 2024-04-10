@@ -34,7 +34,7 @@ namespace firstMobileApp.Class
             // Effacez les autres informations de connexion si nécessaire
         }
 
-        public async static void UpdateUserData()
+        public async static Task UpdateUserData()
         {
             UserModel userModel = new UserModel();
             await userModel.LoadData();

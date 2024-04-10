@@ -25,7 +25,7 @@ namespace firstMobileApp.Models
             FilterCommand = new Command<string>(Filter);
         }
 
-        public async void LoadData()
+        public async Task LoadData()
         {
             var result = await api.GetPostData("/events/sport");
             List<EvenementsSportifs> evenementsSportifs = JsonConvert.DeserializeObject<List<EvenementsSportifs>>(result);

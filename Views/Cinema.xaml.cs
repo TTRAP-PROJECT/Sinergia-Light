@@ -6,11 +6,11 @@ namespace firstMobileApp.Views;
 public partial class Cinema : ContentPage
 {
     CinemaModel cinemaModel;
-
+    ToolbarItem soldeToolbarItem;
     public Cinema()
 	{
 		InitializeComponent();
-        ToolbarItem soldeToolbarItem = new ToolbarItem();
+        soldeToolbarItem = new ToolbarItem();
         soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰"; // Remplacez 100 par le solde réel de l'utilisateur
         ToolbarItems.Add(soldeToolbarItem);
 
@@ -19,6 +19,14 @@ public partial class Cinema : ContentPage
 
         // Définir le BindingContext sur votre ViewModel
         BindingContext = cinemaModel;
+    }
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+        // Appeler la méthode de rafraîchissement des données lorsque la page apparaît
+        await cinemaModel.LoadData();
+        await UserSessionManager.UpdateUserData();
+        soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰";
     }
 
     private async void NavigateToCinemaDetails(object sender, TappedEventArgs e)
@@ -35,11 +43,5 @@ public partial class Cinema : ContentPage
         
     }
 
-    private void RefreshButton_Clicked(object sender, EventArgs e)
-    {
-        cinemaModel = new CinemaModel();
-
-        // Définir le BindingContext sur votre ViewModel
-        BindingContext = cinemaModel;
-    }
+    
 }

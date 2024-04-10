@@ -6,15 +6,24 @@ namespace firstMobileApp.Views
     public partial class CinemaDetail : ContentPage
     {
         FilmModel filmModel;
+        ToolbarItem soldeToolbarItem;
         public CinemaDetail(int idFilm)
         {
             InitializeComponent();
             InitializeAsync(idFilm);
-            ToolbarItem soldeToolbarItem = new ToolbarItem();
+            soldeToolbarItem = new ToolbarItem();
             soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰"; // Remplacez 100 par le solde réel de l'utilisateur
             ToolbarItems.Add(soldeToolbarItem);
         }
-
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            // Appeler la méthode de rafraîchissement des données lorsque la page apparaît
+            await filmModel.LoadData();
+            await UserSessionManager.UpdateUserData();
+            soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰";
+            nb.Text = "Réservations : " + filmModel.Film.NombreDeReservations.ToString() + " / " + filmModel.Film.Service.NbPersonnesMax.ToString();
+        }
         private async void InitializeAsync(int idFilm)
         {
             // Créer une instance de votre ViewModel
@@ -37,9 +46,11 @@ namespace firstMobileApp.Views
             var date = filmModel.Film.Service.DatePrevue;
             var nbReservation = filmModel.Film.NombreDeReservations;
             var nbReservationMax = filmModel.Film.Service.NbPersonnesMax;
+            var idVendeur = filmModel.Film.Service.IdVendeur;
+
 
             // Appelez votre méthode EstReservable pour vérifier si la réservation est possible
-            List<bool> listeBools = await ExceptionModel.EstReservable(idFilm, (int)prix, date, nbReservationMax, nbReservation);
+            List<bool> listeBools = await ExceptionModel.EstReservable(idFilm, (int)prix, date, nbReservationMax, nbReservation, idVendeur);
 
             // Liste pour stocker les messages d'erreur
             List<string> erreurs = new List<string>();
@@ -60,6 +71,10 @@ namespace firstMobileApp.Views
             if (listeBools[3])
             {
                 erreurs.Add("Solde insuffisant.");
+            }
+            if (listeBools[4])
+            {
+                erreurs.Add("Vous êtes le propriétaire de ce service.");
             }
 
             // Afficher une alerte si des erreurs ont été trouvées, sinon procéder au paiement

@@ -6,14 +6,23 @@ namespace firstMobileApp.Views;
 public partial class EchangeCompetencesDetails : ContentPage
 {
     EchangeCompetencesModel echangeCompetences;
-
+    ToolbarItem soldeToolbarItem;
     public EchangeCompetencesDetails(int idCours)
 	{
 		InitializeComponent();
         InitializeAsync(idCours);
-        ToolbarItem soldeToolbarItem = new ToolbarItem();
+        soldeToolbarItem = new ToolbarItem();
         soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰"; // Remplacez 100 par le solde réel de l'utilisateur
         ToolbarItems.Add(soldeToolbarItem);
+    }
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+        // Appeler la méthode de rafraîchissement des données lorsque la page apparaît
+        await echangeCompetences.LoadData();
+        await UserSessionManager.UpdateUserData();
+        soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰";
+        nb.Text = "Réservations : " + echangeCompetences.Cours.NombreDeReservations.ToString() + " / " + echangeCompetences.Cours.Service.NbPersonnesMax.ToString();
     }
 
     private async void InitializeAsync(int idCours)
@@ -38,9 +47,10 @@ public partial class EchangeCompetencesDetails : ContentPage
         var date = echangeCompetences.Cours.Service.DatePrevue;
         var nbReservation = echangeCompetences.Cours.NombreDeReservations;
         var nbReservationMax = echangeCompetences.Cours.Service.NbPersonnesMax;
+        var idVendeur = echangeCompetences.Cours.Service.IdVendeur;
 
         // Appelez votre méthode EstReservable pour vérifier si la réservation est possible
-        List<bool> listeBools = await ExceptionModel.EstReservable(idCours, (int)prix, date, nbReservationMax, nbReservation);
+        List<bool> listeBools = await ExceptionModel.EstReservable(idCours, (int)prix, date, nbReservationMax, nbReservation, idVendeur);
 
         // Liste pour stocker les messages d'erreur
         List<string> erreurs = new List<string>();
@@ -61,6 +71,10 @@ public partial class EchangeCompetencesDetails : ContentPage
         if (listeBools[3])
         {
             erreurs.Add("Solde insuffisant.");
+        }
+        if (listeBools[4])
+        {
+            erreurs.Add("Vous êtes le propriétaire de ce service.");
         }
 
         // Afficher une alerte si des erreurs ont été trouvées, sinon procéder au paiement

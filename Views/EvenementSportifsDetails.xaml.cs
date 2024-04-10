@@ -7,15 +7,24 @@ namespace firstMobileApp.Views;
 public partial class EvenementSportifsDetails : ContentPage
 {
     EvenementSportifModel evenementSportifModel;
+    ToolbarItem soldeToolbarItem;
     public EvenementSportifsDetails(int idSport)
     {
         InitializeComponent();
         InitializeAsync(idSport);
-        ToolbarItem soldeToolbarItem = new ToolbarItem();
+        soldeToolbarItem = new ToolbarItem();
         soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰"; // Remplacez 100 par le solde réel de l'utilisateur
         ToolbarItems.Add(soldeToolbarItem);
     }
-
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+        // Appeler la méthode de rafraîchissement des données lorsque la page apparaît
+        await evenementSportifModel.LoadData();
+        await UserSessionManager.UpdateUserData();
+        soldeToolbarItem.Text = UserSessionManager.Solde.ToString() + "💰";
+        nb.Text = "Réservations : " + evenementSportifModel.Sport.NombreDeReservations.ToString() + " / " + evenementSportifModel.Sport.Service.NbPersonnesMax.ToString();
+    }
     private async void InitializeAsync(int idSport)
     {
         // Créer une instance de votre ViewModel
@@ -39,9 +48,10 @@ public partial class EvenementSportifsDetails : ContentPage
         var date = evenementSportifModel.Sport.Service.DatePrevue;
         var nbReservation = evenementSportifModel.Sport.NombreDeReservations;
         var nbReservationMax = evenementSportifModel.Sport.Service.NbPersonnesMax;
+        var idVendeur = evenementSportifModel.Sport.Service.IdVendeur;
 
         // Appelez votre méthode EstReservable pour vérifier si la réservation est possible
-        List<bool> listeBools = await ExceptionModel.EstReservable(idSport, (int)prix, date, nbReservationMax, nbReservation);
+        List<bool> listeBools = await ExceptionModel.EstReservable(idSport, (int)prix, date, nbReservationMax, nbReservation, idVendeur);
 
         // Liste pour stocker les messages d'erreur
         List<string> erreurs = new List<string>();
@@ -62,6 +72,10 @@ public partial class EvenementSportifsDetails : ContentPage
         if (listeBools[3])
         {
             erreurs.Add("Solde insuffisant.");
+        }
+        if (listeBools[4])
+        {
+            erreurs.Add("Vous êtes le propriétaire de ce service.");
         }
 
         // Afficher une alerte si des erreurs ont été trouvées, sinon procéder au paiement

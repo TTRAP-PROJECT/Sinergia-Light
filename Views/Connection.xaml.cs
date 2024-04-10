@@ -23,7 +23,7 @@ public partial class Connection : ContentPage
             if (connectionModel.estValide)
             {
                 UserSessionManager.SetUser(UsernameEntry.Text);
-                UserSessionManager.UpdateUserData();
+                await UserSessionManager.UpdateUserData();
                 await Navigation.PopAsync();
             }
             else

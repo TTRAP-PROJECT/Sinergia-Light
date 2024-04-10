@@ -26,7 +26,7 @@ namespace firstMobileApp.Models
             FilterCommand = new Command<string>(Filter);
         }
 
-        public async void LoadData()
+        public async Task LoadData()
         {
             var result = await api.GetPostData("/covoiturages");
             List<Covoiturage> covoituragesList = JsonConvert.DeserializeObject<List<Covoiturage>>(result);
