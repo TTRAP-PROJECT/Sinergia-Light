@@ -32,7 +32,7 @@ namespace firstMobileApp.Class
         }
         public async Task<string> GetPostData(string endpoint)
         {
-            var url = "http://192.168.125.11:81/api"+endpoint;
+            var url = "http://192.168.104.4:81/api"+endpoint;
 
             var response = await _client.GetAsync(url);
 
