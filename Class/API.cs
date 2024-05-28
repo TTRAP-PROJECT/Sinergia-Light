@@ -43,7 +43,7 @@ namespace firstMobileApp.Class
 
         public async Task<string> PostData(string endpoint, string jsonData)
         {
-            var url = "http://192.168.125.11:81/api" + endpoint;
+            var url = "http://192.168.104.4:81/api" + endpoint;
 
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
